@@ -2802,6 +2802,7 @@ namespace crnlib
 
       if (!serializer.get_stream())
       {
+      console::debug("Invalid stream");
          set_last_error("Invalid stream");
          return false;
       }
@@ -2811,6 +2812,7 @@ namespace crnlib
 
       if (file_format == texture_file_types::cFormatInvalid)
       {
+      console::debug("Invalid format");
          set_last_error("Unsupported file format");
          return false;
       }

@@ -2291,7 +2291,7 @@ char *stbi_zlib_decode_malloc_guesssize(const char *buffer, int len, int initial
 
 char *stbi_zlib_decode_malloc(char const *buffer, int len, int *outlen)
 {
-   return stbi_zlib_decode_malloc_guesssize(buffer, len, 16384, outlen);
+   return stbi_zlib_decode_malloc_guesssize(buffer, len, 18432, outlen);
 }
 
 int stbi_zlib_decode_buffer(char *obuffer, int olen, char const *ibuffer, int ilen)
@@ -2308,11 +2308,11 @@ int stbi_zlib_decode_buffer(char *obuffer, int olen, char const *ibuffer, int il
 char *stbi_zlib_decode_noheader_malloc(char const *buffer, int len, int *outlen)
 {
    zbuf a;
-   char *p = (char *) stb_malloc(16384);
+   char *p = (char *) stb_malloc(18432);
    if (p == NULL) return NULL;
    a.zbuffer = (uint8 *) buffer;
    a.zbuffer_end = (uint8 *) buffer+len;
-   if (do_zlib(&a, p, 16384, 1, 0)) {
+   if (do_zlib(&a, p, 18432, 1, 0)) {
       if (outlen) *outlen = (int) (a.zout - a.zout_start);
       return a.zout_start;
    } else {

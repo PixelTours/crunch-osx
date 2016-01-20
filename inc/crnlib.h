@@ -83,7 +83,7 @@ enum crn_format
 enum crn_limits
 {
    // Max. mipmap level resolution on any axis.
-   cCRNMaxLevelResolution     = 4096,
+   cCRNMaxLevelResolution     = 18432,
 
    cCRNMinPaletteSize         = 8,
    cCRNMaxPaletteSize         = 8192,

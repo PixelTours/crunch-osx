@@ -9,13 +9,14 @@
 // Chroma upsampling reference: "Fast Scheme for Image Size Change in the Compressed Domain"
 // http://vision.ai.uiuc.edu/~dugad/research/dct/index.html
 
+#include "crn_core.h"
+#include "crn_console.h"
+
 #include "crn_jpgd.h"
 #include <string.h>
 
 #include <assert.h>
 #define JPGD_ASSERT(x) assert(x)
-
-#include "crn_core.h"
 
 #ifdef _MSC_VER
 #pragma warning (disable : 4611) // warning C4611: interaction between '_setjmp' and C++ object destruction is non-portable
@@ -3069,8 +3070,9 @@ unsigned char *decompress_jpeg_image_from_stream(jpeg_decoder_stream *pStream, i
     return NULL;
 
   jpeg_decoder decoder(pStream);
-  if (decoder.get_error_code() != JPGD_SUCCESS)
+  if (decoder.get_error_code() != JPGD_SUCCESS) {
     return NULL;
+  }
 
   const int image_width = decoder.get_width(), image_height = decoder.get_height();
   *width = image_width;

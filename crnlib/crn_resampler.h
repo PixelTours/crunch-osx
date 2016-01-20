@@ -7,7 +7,7 @@ namespace crnlib
    #define CRNLIB_RESAMPLER_DEBUG_OPS 0
    #define CRNLIB_RESAMPLER_DEFAULT_FILTER "lanczos4"
 
-   #define CRNLIB_RESAMPLER_MAX_DIMENSION 16384
+   #define CRNLIB_RESAMPLER_MAX_DIMENSION 18432
 
    // float or double
    typedef float Resample_Real;
